@@ -12,6 +12,9 @@ export default defineConfig({
       entry: "index.ts",
       fileName: "main",
     },
+    rollupOptions: {
+      external: ["ffi-napi", "ref-napi", "ref-array-di", "ref-struct-di"],
+    },
   },
   resolve: {
     // Some libs that can run in both Web and Node.js, such as `axios`, we need to tell Vite to build them in Node.js.

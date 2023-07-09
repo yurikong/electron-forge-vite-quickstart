@@ -1,10 +1,17 @@
 import { app, BrowserWindow } from "electron"
 import path from "node:path"
+import ffi from "ffi-napi"
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
   app.quit()
 }
+
+const libPath = path.resolve(process.cwd(), "lib", "add.dylib")
+const lib = ffi.Library(libPath, {
+  add: ["int", ["int", "int"]],
+})
+console.log(`3 + 5 = ${lib.add(3, 5)}`)
 
 const createWindow = (): void => {
   // Create the browser window.
