@@ -1,0 +1,78 @@
+{
+  "name": "electron-forge-vite-vue-quickstart",
+  "productName": "electron-forge-vite-vue-quickstart",
+  "version": "1.0.0",
+  "description": "A vue quickstart template for electron-forge using vite",
+  "main": ".vite/build/main.js",
+  "private": true,
+  "keywords": [
+    "electron",
+    "electron-forge",
+    "vite"
+  ],
+  "author": {
+    "name": "Jianqiang Du",
+    "email": "jackdu2013@163.com",
+    "url": "https://github.com/yurikong"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yurikong/electron-forge-vite-quickstart.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint . --fix --ext .js,.cjs,.mjs --ignore-path .gitignore",
+    "format": "prettier . --write --ignore-unknown --ignore-path .gitignore",
+    "prepare": "husky install",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "lint-staged": {
+    "*.{js,cjs,mjs}": [
+      "yarn lint",
+      "yarn format"
+    ],
+    "!(*.{js,cjs,mjs})": [
+      "yarn format"
+    ]
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/cz-commitlint": "^17.5.0",
+    "@commitlint/format": "^17.4.4",
+    "@electron-forge/cli": "^6.2.1",
+    "@electron-forge/maker-deb": "^6.2.1",
+    "@electron-forge/maker-rpm": "^6.2.1",
+    "@electron-forge/maker-squirrel": "^6.2.1",
+    "@electron-forge/maker-zip": "^6.2.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.2.1",
+    "@electron-forge/plugin-vite": "^6.2.1",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "commitizen": "^4.3.0",
+    "commitlint": "^17.6.6",
+    "electron": "^25.2.0",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.15.1",
+    "husky": "^8.0.3",
+    "inquirer": "^8.0.0",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0",
+    "sass": "^1.63.6",
+    "vite": "^4.4.2"
+  }
+}
