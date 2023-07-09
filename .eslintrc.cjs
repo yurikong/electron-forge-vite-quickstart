@@ -7,12 +7,15 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ["plugin:vue/vue3-recommended", "eslint:recommended", "@vue/eslint-config-prettier/skip-formatting"],
-  globals: {
-    MAIN_WINDOW_VITE_DEV_SERVER_URL: "readonly",
-    MAIN_WINDOW_VITE_NAME: "readonly",
-  },
+  extends: [
+    "plugin:vue/vue3-recommended",
+    "eslint:recommended",
+    "@vue/eslint-config-typescript/recommended",
+    "@vue/eslint-config-prettier/skip-formatting",
+  ],
+  parser: "vue-eslint-parser",
   parserOptions: {
+    parser: "@typescript-eslint/parser",
     sourceType: "module",
     ecmaVersion: "latest",
   },

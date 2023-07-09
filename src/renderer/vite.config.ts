@@ -1,17 +1,17 @@
-import path from "node:path"
+import { fileURLToPath, URL } from "node:url"
 import { defineConfig } from "vite"
 import vue from "@vitejs/plugin-vue"
 
 // https://vitejs.dev/config
 export default defineConfig({
-  root: path.resolve(__dirname),
+  root: fileURLToPath(new URL(".", import.meta.url)),
   base: "./",
   plugins: [vue()],
   resolve: {
     browserField: true,
     mainFields: ["browser", "module", "jsnext:main", "jsnext"],
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
   css: {

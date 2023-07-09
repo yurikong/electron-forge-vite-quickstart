@@ -1,7 +1,7 @@
-import path from "node:path"
+import { fileURLToPath, URL } from "node:url"
 import { defineConfig } from "vite"
 
-const rootPath = path.resolve(__dirname)
+const rootPath = fileURLToPath(new URL(".", import.meta.url))
 
 // https://vitejs.dev/config
 export default defineConfig({
@@ -9,7 +9,7 @@ export default defineConfig({
   base: "./",
   build: {
     lib: {
-      entry: "index.js",
+      entry: "index.ts",
       fileName: "main",
     },
   },
