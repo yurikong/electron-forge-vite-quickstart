@@ -23,10 +23,13 @@
   "license": "MIT",
   "scripts": {
     "dev": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
+    "package": "run-p type-check package:only",
+    "make": "run-p type-check make:only",
     "publish": "electron-forge publish",
-    "lint": "eslint . --fix --ext .vue,.js,.cjs,.mjs --ignore-path .gitignore",
+    "package:only": "electron-forge package",
+    "make:only": "electron-forge make",
+    "type-check": "vue-tsc --noEmit",
+    "lint": "eslint . --fix --ext .vue,.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx --ignore-path .gitignore",
     "format": "prettier . --write --ignore-unknown --ignore-path .gitignore",
     "prepare": "husky install",
     "commit": "git-cz"
@@ -37,11 +40,11 @@
     }
   },
   "lint-staged": {
-    "*.{vue,js,cjs,mjs}": [
-      "yarn lint"
+    "*.{vue,js,cjs,mjs,jsx,ts,cts,mts,tsx}": [
+      "eslint --fix --ignore-path .gitignore"
     ],
     "*": [
-      "yarn format"
+      "prettier --write --ignore-unknown --ignore-path .gitignore"
     ]
   },
   "dependencies": {
@@ -50,6 +53,7 @@
     "ref-array-di": "^1.2.2",
     "ref-napi": "^3.0.3",
     "ref-struct-di": "^1.1.1",
+    "normalize.css": "^8.0.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -80,12 +84,14 @@
     "commitizen": "^4.3.0",
     "commitlint": "^17.6.6",
     "electron": "20.3.8",
+    "electron-devtools-installer": "^3.2.0",
     "eslint": "^8.44.0",
     "eslint-plugin-vue": "^9.15.1",
     "husky": "^8.0.3",
     "inquirer": "^8.0.0",
     "lint-staged": "^13.2.3",
     "npm-run-all": "^4.1.5",
+    "postcss-preset-env": "^9.0.0",
     "prettier": "^3.0.0",
     "sass": "^1.63.6",
     "ts-node": "^10.9.1",
