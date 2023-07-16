@@ -1,0 +1,35 @@
+$vars: (
+  --font-size-extra-large: 20px,
+  --font-size-large: 18px,
+  --font-size-medium: 16px,
+  --font-size-base: 14px,
+  --font-size-small: 13px,
+  --font-size-extra-small: 12px,
+
+  --font-family: (
+    -apple-system,
+    BlinkMacSystemFont,
+    "PingFang SC",
+    "Helvetica Neue",
+    Helvetica,
+    "Segoe UI",
+    "Microsoft YaHei",
+    Roboto,
+    system-ui,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+  ),
+
+  --transition-duration-base: 0.35s,
+  --transition-duration-fast: 0.25s,
+  --transition-timing-function: ease,
+);
+
+:root {
+  @each $key, $value in $vars {
+    #{$key}: $value;
+  }
+}

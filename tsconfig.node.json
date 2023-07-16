@@ -6,8 +6,8 @@
     "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@main/*": ["./src/main/*"],
-      "@preload/*": ["./src/preload/*"]
+      "@main/*": ["src/main/*"],
+      "@preload/*": ["src/preload/*"]
     },
     "types": ["node"]
   }
